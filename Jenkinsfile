@@ -38,7 +38,7 @@ pipeline {
             steps {
                 // Create results directory and run tests
                 sh 'mkdir -p results'
-                sh 'robot --outputdir results Jenkins/robot_tests/math.robot'
+                sh 'robot --outputdir results robot_tests/math.robot'
             }
         }
     }
