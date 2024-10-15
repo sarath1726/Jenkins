@@ -1,14 +1,13 @@
 *** Settings ***
-
 Library  BuiltIn
 
-*** Variables ***
 
+*** Variables ***
 ${NUMBER_1}    10
 ${NUMBER_2}    20
 
-*** Test Cases ***
 
+*** Test Cases ***
 Addition Test
     [Documentation]  This test adds ${NUMBER_1} and ${NUMBER_2}.
     [Tags]    Addition    Arithmetic
