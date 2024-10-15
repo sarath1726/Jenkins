@@ -38,7 +38,7 @@ pipeline {
             steps {
                 // Create results directory and run tests
                 sh 'mkdir -p results'
-                sh 'robot --outputdir results test_script.robot'
+                sh 'robot --outputdir results math.robot'
             }
         }
     }
