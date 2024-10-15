@@ -36,7 +36,8 @@ pipeline {
         }
         stage('Run Robot Framework Tests') {
             steps {
-                // Assuming you run tests here
+                // Create results directory and run tests
+                sh 'mkdir -p results'
                 sh 'robot --outputdir results test_script.robot'
             }
         }
