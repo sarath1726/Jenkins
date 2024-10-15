@@ -1,11 +1,9 @@
 *** Settings ***
 Library  BuiltIn
 
-
 *** Variables ***
 ${NUMBER_1}    10
 ${NUMBER_2}    20
-
 
 *** Test Cases ***
 Addition Test
