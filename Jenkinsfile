@@ -19,7 +19,7 @@ pipeline
                 // Create results directory and run tests
                 sh 'mkdir -p results'
                 // sh 'robot --outputdir results robot_tests'
-		robot --listener robotframework_reportportal.listener --outputdir results robot_tests
+		sh 'robot --listener robotframework_reportportal.listener --outputdir results robot_tests'
             }
         }
     }
