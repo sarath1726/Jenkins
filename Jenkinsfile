@@ -5,7 +5,7 @@ pipeline
     {
 	stage('Install Dependencies') {
             steps {
-                sh 'apt-get update && apt-get install -y python3-pip'
+                sh 'apt-get install -y python3-pip'
 		sh 'pip install robotframework'
                 sh 'pip install robotframework-reportportal'
             }
