@@ -8,16 +8,25 @@ pipeline
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-        
-	    stage('Activate Virtual Environment and Run Tests') {
+        stage('Activate Virtual Environment and Run Tests') {
+    	    steps {
+            script {
+            // Create virtual environment if it doesn't exist
+            if (!fileExists('venv')) {
+                sh 'python3 -m venv venv'
+            }
+            // Activate the virtual environment
+            sh 'source venv/bin/activate'
+            // Run your tests here
+            sh 'source venv/bin/activate && robot your_test_directory'
+        }
+    }
+}
+	    stage('Run Tests') {
             steps {
-                // Activate the virtual environment and run Robot Framework tests
                 script {
-                    // Activate the virtual environment
-                    def activateScript = 'source venv/bin/activate &&'
-
                     // Run Robot Framework tests
-                    sh "${activateScript} robot --outputdir results robot_tests"
+                    sh "robot --outputdir results robot_tests"
                 }
             }
         }
