@@ -1,29 +1,21 @@
-pipeline
-{    
-    agent {
-        docker {
-            image 'robotframework/rfdocker'  // Docker image with Robot Framework pre-installed
-        }
-    } 
-    stages
-    {
-	stage('Checkout') {
+pipeline {
+    agent any
+       stages {
+        stage('Checkout') {
             steps {
                 // Checkout the main branch
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-        
-	stage('Run Robot Framework Tests and Update Results in ReportPortal') {
+        stage('Run Robot Framework Tests with ReportPortal') {
             steps {
-            	// Create results directory and run tests
-                sh 'mkdir -p results'
-                // sh 'robot --outputdir results robot_tests'
-		sh 'robot --outputdir results robot_tests'
-	    }
+	        // Create results directory and run tests
+           	sh 'mkdir -p results'
+		// sh 'robot --outputdir results robot_tests'
+		robot --listener robotframework_reportportal.listener --outputdir results robot_tests
+            }
         }
     }
-
     post {
         always {
             // Publish Robot Framework results
