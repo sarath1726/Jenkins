@@ -30,7 +30,3 @@ pipeline
         }
     }
 }
-// Activate the virtual environment and run Robot Framework tests
-                script {
-                    // Activate the virtual environment
-                    def activateScript = 'source venv/bin/activate &&'
