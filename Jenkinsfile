@@ -5,10 +5,8 @@ pipeline
     {
 	stage('Install Dependencies') {
             steps {
-                sh '''
-                    pip install robotframework
-                    pip install robotframework-reportportal
-                '''
+                sh 'pip install robotframework'
+                sh 'pip install robotframework-reportportal'
             }
         }
 	
