@@ -1,6 +1,10 @@
 pipeline
 {    
-    agent any   
+    agent {
+        docker {
+            image 'robotframework/rfdocker'  // Docker image with Robot Framework pre-installed
+        }
+    } 
     stages
     {
 	stage('Checkout') {
