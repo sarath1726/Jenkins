@@ -8,14 +8,17 @@ pipeline
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-
-        stage('Run Robot Framework Tests and Update Results in ReportPortal') {
+        
+	    stage('Activate Virtual Environment and Run Tests') {
             steps {
-		sh 'source venv/bin/activate'
-                // Create results directory and run tests
-                sh 'mkdir -p results'
-                // sh 'robot --outputdir results robot_tests'
-                sh 'robot --outputdir results robot_tests'
+                // Activate the virtual environment and run Robot Framework tests
+                script {
+                    // Activate the virtual environment
+                    def activateScript = 'source venv/bin/activate &&'
+
+                    // Run Robot Framework tests
+                    sh "${activateScript} robot --outputdir results robot_tests"
+                }
             }
         }
     }
@@ -27,3 +30,7 @@ pipeline
         }
     }
 }
+// Activate the virtual environment and run Robot Framework tests
+                script {
+                    // Activate the virtual environment
+                    def activateScript = 'source venv/bin/activate &&'
