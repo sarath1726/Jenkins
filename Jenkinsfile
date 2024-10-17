@@ -7,15 +7,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-        stage('Run Robot Framework Tests with ReportPortal') {
+        stage('Run Robot Framework Tests') {
             steps {
-	        // Create results directory and run tests
-           	sh 'mkdir -p results'
-		// sh 'robot --outputdir results robot_tests'
-		robot --listener robotframework_reportportal.listener --outputdir results robot_tests
+                // Use the `sh` step to run shell commands
+                sh 'robot --listener robotframework_reportportal.listener --outputdir results robot_tests'
             }
         }
-    }
+       }
     post {
         always {
             // Publish Robot Framework results
