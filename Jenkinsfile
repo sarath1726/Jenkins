@@ -3,6 +3,15 @@ pipeline
     agent any   
     stages
     {
+	stage('Install Dependencies') {
+            steps {
+                sh '''
+                    pip install robotframework
+                    pip install robotframework-reportportal
+                '''
+            }
+        }
+	
 	stage('Checkout') {
             steps {
                 // Checkout the main branch
