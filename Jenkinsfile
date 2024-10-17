@@ -3,6 +3,14 @@ pipeline
     agent any   
     stages
     {
+	stage('Install Dependencies') {
+            steps {
+                sh '''
+                    pip install robotframework
+                    pip install robotframework-reportportal
+                '''
+            }
+        }
 	stage('Checkout')
 	{
             steps 
@@ -16,11 +24,13 @@ pipeline
 	{
             steps
 	    {
-                // Create results directory and run tests
-                sh 'mkdir -p results'
-                // sh 'robot --outputdir results robot_tests'
-		sh 'robot --listener robotframework_reportportal.listener --outputdir results robot_tests'
-            }
+		sh '''
+            	    // Create results directory and run tests
+              	    mkdir -p results
+                    // sh 'robot --outputdir results robot_tests'
+		    robot --listener robotframework_reportportal.listener --outputdir results robot_tests
+                '''
+	    }
         }
     }
 
