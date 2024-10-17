@@ -9,7 +9,7 @@ pipeline {
         stage('Run Robot Framework Tests') {
             steps {
                 // Assuming you run tests here
-                sh 'robot --outputdir results test_script.robot'
+                sh 'robot --outputdir results robot_tests'
             }
         }
     }
