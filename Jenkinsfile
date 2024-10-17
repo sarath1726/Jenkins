@@ -11,6 +11,7 @@ pipeline
 
         stage('Run Robot Framework Tests and Update Results in ReportPortal') {
             steps {
+		sh 'source venv/bin/activate'
                 // Create results directory and run tests
                 sh 'mkdir -p results'
                 // sh 'robot --outputdir results robot_tests'
