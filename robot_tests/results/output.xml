@@ -1,125 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.10.12 on linux)" generated="2024-10-16T14:13:33.808083" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.10.12 on linux)" generated="2024-10-16T14:49:38.316193" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot Tests" source="/home/sarathbabu/Jenkins/robot_tests">
 <suite id="s1-s1" name="Add" source="/home/sarathbabu/Jenkins/robot_tests/add.robot">
 <test id="s1-s1-t1" name="Addition Test" line="9">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.823161" level="INFO">${result} = 30</msg>
+<msg time="2024-10-16T14:49:38.336709" level="INFO">${result} = 30</msg>
 <var>${result}</var>
 <arg>${NUMBER_1} + ${NUMBER_2}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.822921" elapsed="0.000262"/>
+<status status="PASS" start="2024-10-16T14:49:38.336336" elapsed="0.000415"/>
 </kw>
 <kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.823406" level="INFO">Argument types are:
+<msg time="2024-10-16T14:49:38.337113" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${result}</arg>
 <arg>30</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.823307" elapsed="0.000139"/>
+<status status="PASS" start="2024-10-16T14:49:38.336943" elapsed="0.000228"/>
 </kw>
 <doc>This test adds 10 and 20.</doc>
 <tag>Addition</tag>
 <tag>Arithmetic</tag>
-<status status="PASS" start="2024-10-16T14:13:33.822517" elapsed="0.001049"/>
+<status status="PASS" start="2024-10-16T14:49:38.335585" elapsed="0.001741"/>
 </test>
-<status status="PASS" start="2024-10-16T14:13:33.821626" elapsed="0.002226"/>
+<status status="PASS" start="2024-10-16T14:49:38.334234" elapsed="0.003536"/>
 </suite>
 <suite id="s1-s2" name="Division" source="/home/sarathbabu/Jenkins/robot_tests/division.robot">
 <test id="s1-s2-t1" name="Division Test" line="9">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.825281" level="INFO">${result} = 2.0</msg>
+<msg time="2024-10-16T14:49:38.339954" level="INFO">${result} = 2.0</msg>
 <var>${result}</var>
 <arg>${NUMBER_2} / ${NUMBER_1}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.825129" elapsed="0.000169"/>
+<status status="PASS" start="2024-10-16T14:49:38.339708" elapsed="0.000279"/>
 </kw>
 <kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.825471" level="INFO">Argument types are:
+<msg time="2024-10-16T14:49:38.340263" level="INFO">Argument types are:
 &lt;class 'float'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${result}</arg>
 <arg>2</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.825384" elapsed="0.000120"/>
+<status status="PASS" start="2024-10-16T14:49:38.340140" elapsed="0.000172"/>
 </kw>
 <doc>This test divides 20 by 10.</doc>
 <tag>Arithmetic</tag>
 <tag>Division</tag>
-<status status="PASS" start="2024-10-16T14:13:33.824925" elapsed="0.000678"/>
+<status status="PASS" start="2024-10-16T14:49:38.339380" elapsed="0.001041"/>
 </test>
-<status status="PASS" start="2024-10-16T14:13:33.824104" elapsed="0.001658"/>
+<status status="PASS" start="2024-10-16T14:49:38.338116" elapsed="0.002568"/>
 </suite>
-<suite id="s1-s3" name="Multiply" source="/home/sarathbabu/Jenkins/robot_tests/multiply.robot">
-<test id="s1-s3-t1" name="Multiplication Test" line="9">
+<suite id="s1-s3" name="Math" source="/home/sarathbabu/Jenkins/robot_tests/math.robot">
+<test id="s1-s3-t1" name="Addition Test" line="9">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.827151" level="INFO">${result} = 200</msg>
+<msg time="2024-10-16T14:49:38.342581" level="INFO">${result} = 30</msg>
 <var>${result}</var>
-<arg>${NUMBER_1} * ${NUMBER_2}</arg>
+<arg>${NUMBER_1} + ${NUMBER_2}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.827005" elapsed="0.000163"/>
+<status status="PASS" start="2024-10-16T14:49:38.342372" elapsed="0.000233"/>
 </kw>
 <kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.827337" level="INFO">Argument types are:
+<msg time="2024-10-16T14:49:38.342837" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${result}</arg>
-<arg>200</arg>
+<arg>30</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.827249" elapsed="0.000128"/>
+<status status="PASS" start="2024-10-16T14:49:38.342720" elapsed="0.000163"/>
 </kw>
-<doc>This test multiplies 10 by 20.</doc>
+<doc>This test adds 10 and 20.</doc>
+<tag>Addition</tag>
 <tag>Arithmetic</tag>
-<tag>Multiplication</tag>
-<status status="PASS" start="2024-10-16T14:13:33.826805" elapsed="0.000658"/>
+<status status="PASS" start="2024-10-16T14:49:38.342099" elapsed="0.000912"/>
 </test>
-<status status="PASS" start="2024-10-16T14:13:33.825986" elapsed="0.001637"/>
-</suite>
-<suite id="s1-s4" name="Sub" source="/home/sarathbabu/Jenkins/robot_tests/sub.robot">
-<test id="s1-s4-t1" name="Subtraction Test" line="9">
+<test id="s1-s3-t2" name="Subtraction Test" line="15">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.829069" level="INFO">${result} = -10</msg>
+<msg time="2024-10-16T14:49:38.343759" level="INFO">${result} = -10</msg>
 <var>${result}</var>
 <arg>${NUMBER_1} - ${NUMBER_2}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.828920" elapsed="0.000165"/>
+<status status="PASS" start="2024-10-16T14:49:38.343560" elapsed="0.000217"/>
 </kw>
 <kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-10-16T14:13:33.829250" level="INFO">Argument types are:
+<msg time="2024-10-16T14:49:38.343989" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${result}</arg>
 <arg>-10</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-10-16T14:13:33.829166" elapsed="0.000117"/>
+<status status="PASS" start="2024-10-16T14:49:38.343867" elapsed="0.000188"/>
 </kw>
 <doc>This test subtracts 20 from 10.</doc>
 <tag>Arithmetic</tag>
 <tag>Subtraction</tag>
-<status status="PASS" start="2024-10-16T14:13:33.828724" elapsed="0.000639"/>
+<status status="PASS" start="2024-10-16T14:49:38.343230" elapsed="0.000957"/>
 </test>
-<status status="PASS" start="2024-10-16T14:13:33.827849" elapsed="0.001665"/>
+<test id="s1-s3-t3" name="Multiplication Test" line="21">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.344867" level="INFO">${result} = 200</msg>
+<var>${result}</var>
+<arg>${NUMBER_1} * ${NUMBER_2}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.344659" elapsed="0.000226"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.345133" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.345015" elapsed="0.000163"/>
+</kw>
+<doc>This test multiplies 10 by 20.</doc>
+<tag>Arithmetic</tag>
+<tag>Multiplication</tag>
+<status status="PASS" start="2024-10-16T14:49:38.344389" elapsed="0.000891"/>
+</test>
+<test id="s1-s3-t4" name="Division Test" line="27">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.345909" level="INFO">${result} = 2.0</msg>
+<var>${result}</var>
+<arg>${NUMBER_2} / ${NUMBER_1}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.345725" elapsed="0.000201"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.346142" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.346032" elapsed="0.000165"/>
+</kw>
+<doc>This test divides 20 by 10.</doc>
+<tag>Arithmetic</tag>
+<tag>Division</tag>
+<status status="PASS" start="2024-10-16T14:49:38.345465" elapsed="0.000825"/>
+</test>
+<status status="PASS" start="2024-10-16T14:49:38.340972" elapsed="0.005527"/>
 </suite>
-<status status="PASS" start="2024-10-16T14:13:33.808731" elapsed="0.021065"/>
+<suite id="s1-s4" name="Multiply" source="/home/sarathbabu/Jenkins/robot_tests/multiply.robot">
+<test id="s1-s4-t1" name="Multiplication Test" line="9">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.348769" level="INFO">${result} = 200</msg>
+<var>${result}</var>
+<arg>${NUMBER_1} * ${NUMBER_2}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.348502" elapsed="0.000291"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.349066" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.348935" elapsed="0.000178"/>
+</kw>
+<doc>This test multiplies 10 by 20.</doc>
+<tag>Arithmetic</tag>
+<tag>Multiplication</tag>
+<status status="PASS" start="2024-10-16T14:49:38.348161" elapsed="0.001057"/>
+</test>
+<status status="PASS" start="2024-10-16T14:49:38.346790" elapsed="0.002630"/>
+</suite>
+<suite id="s1-s5" name="Sub" source="/home/sarathbabu/Jenkins/robot_tests/sub.robot">
+<test id="s1-s5-t1" name="Subtraction Test" line="9">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.351314" level="INFO">${result} = -10</msg>
+<var>${result}</var>
+<arg>${NUMBER_1} - ${NUMBER_2}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.351065" elapsed="0.000272"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-10-16T14:49:38.351586" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result}</arg>
+<arg>-10</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-10-16T14:49:38.351459" elapsed="0.000187"/>
+</kw>
+<doc>This test subtracts 20 from 10.</doc>
+<tag>Arithmetic</tag>
+<tag>Subtraction</tag>
+<status status="PASS" start="2024-10-16T14:49:38.350759" elapsed="0.001089"/>
+</test>
+<status status="PASS" start="2024-10-16T14:49:38.349704" elapsed="0.002423"/>
+</suite>
+<status status="PASS" start="2024-10-16T14:49:38.317120" elapsed="0.035394"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Addition</stat>
-<stat pass="4" fail="0" skip="0">Arithmetic</stat>
-<stat pass="1" fail="0" skip="0">Division</stat>
-<stat pass="1" fail="0" skip="0">Multiplication</stat>
-<stat pass="1" fail="0" skip="0">Subtraction</stat>
+<stat pass="2" fail="0" skip="0">Addition</stat>
+<stat pass="8" fail="0" skip="0">Arithmetic</stat>
+<stat pass="2" fail="0" skip="0">Division</stat>
+<stat pass="2" fail="0" skip="0">Multiplication</stat>
+<stat pass="2" fail="0" skip="0">Subtraction</stat>
 </tag>
 <suite>
-<stat pass="4" fail="0" skip="0" id="s1" name="Robot Tests">Robot Tests</stat>
+<stat pass="8" fail="0" skip="0" id="s1" name="Robot Tests">Robot Tests</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s1" name="Add">Robot Tests.Add</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s2" name="Division">Robot Tests.Division</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s3" name="Multiply">Robot Tests.Multiply</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s4" name="Sub">Robot Tests.Sub</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s3" name="Math">Robot Tests.Math</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s4" name="Multiply">Robot Tests.Multiply</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s5" name="Sub">Robot Tests.Sub</stat>
 </suite>
 </statistics>
 <errors>
