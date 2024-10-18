@@ -13,7 +13,7 @@ pipeline {
                 // Create and activate the virtual environment, and install Robot Framework
                 sh '''
                 #!/bin/bash
-                python3 -m venv venv  # Create virtual environment if it doesn't exist
+                Jenkins/venv/bin/python3 -m venv venv  # Create virtual environment if it doesn't exist
                 . venv/bin/activate  # Activate the virtual environment
                 pip install robotframework  # Install Robot Framework
                 '''
