@@ -16,7 +16,7 @@ pipeline {
                         source venv/bin/activate
                         
                         # Verify the virtual environment is activated
-                        which python
+                        which robot
 
                         # Run the tests
                         robot --outputdir results robot_tests
