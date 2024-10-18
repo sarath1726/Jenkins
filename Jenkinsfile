@@ -18,12 +18,6 @@ pipeline {
             }
         }
 
-        stage('Publish Robot Results') {
-            steps {
-                // Publish the Robot Framework test results
-                robot plugin: 'Robot Framework', outputPath: "results"
-            }
-        }
     }
 
     post {
