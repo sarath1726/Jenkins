@@ -1,12 +1,5 @@
 pipeline {
     agent any
-
-    environment {
-        VENV_DIR = 'venv'          // Directory where the virtual environment is located
-        ROBOT_TEST_DIR = 'robot_tests'  // Directory containing Robot Framework scripts
-        OUTPUT_DIR = 'results'     // Directory to store the test results
-    }
-
     stages {
         stage('Checkout') {
             steps {
