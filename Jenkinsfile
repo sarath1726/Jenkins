@@ -17,12 +17,9 @@ pipeline {
                         if [ -d "venv" ]; then
                             . venv/bin/activate
                             echo "Virtual environment activated."
-                        else
-                            echo "Virtual environment not found."
-                            exit 1
-                        fi
-                        pip list
-                        # Run Robot Framework tests
+
+                            pip list
+                            # Run Robot Framework tests
                             robot --outputdir results robot_tests
                         else
                             echo "Virtual environment not found."
