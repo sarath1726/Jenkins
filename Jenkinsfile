@@ -13,6 +13,7 @@ pipeline {
                 // Activate the existing virtual environment and run Robot Framework tests
                 sh '''
                 #!/bin/bash
+                source /opt/venv/bin/activate
                 mkdir -p results
                 robot --outputdir results robot_tests
                 '''
@@ -28,3 +29,4 @@ pipeline {
         }
     }
 }
+
