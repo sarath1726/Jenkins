@@ -12,7 +12,9 @@ pipeline {
                 script {
                     // Run the shell commands in a block
                         // Activate the virtual environment
-                        sh '. venv/bin/activate'
+                        // Check if the venv directory exists
+                        if [ -d "venv" ]; then
+                            sh '. venv/bin/activate'
                         
                         // Verify the virtual environment is activated
                         which python
