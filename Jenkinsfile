@@ -18,7 +18,6 @@ pipeline {
                             . venv/bin/activate
                             echo "Virtual environment activated."
 
-                            pip list
                             # Run Robot Framework tests
                             robot --outputdir results robot_tests
                         else
