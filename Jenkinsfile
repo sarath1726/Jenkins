@@ -10,13 +10,12 @@ pipeline {
         stage('Activate Virtual Environment and Run Tests') {
             steps {
                 script {
-                    // Activate the virtual environment and run the tests
                     sh '''
                         # Activate the virtual environment
                         source venv/bin/activate
                         
                         # Verify the virtual environment is activated
-                        which robot
+                        which python
 
                         # Run the tests
                         robot --outputdir results robot_tests
