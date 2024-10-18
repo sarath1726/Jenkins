@@ -21,6 +21,7 @@ pipeline {
                             echo "Virtual environment not found."
                             exit 1
                         fi
+                        . venv/bin/pip list
                     '''
 
                         // Run the Robot Framework tests
