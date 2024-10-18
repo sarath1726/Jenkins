@@ -8,24 +8,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-        stage('Setup Virtual Environment') {
-            steps {
-            script {
-                // Activate the existing virtual environment
-                sh '''
-                . Jenkins/venv/bin/activate
-                '''
-        }
-    }
-}
-
         stage('Run Robot Tests') {
             steps {
                 // Run Robot Framework tests
-                sh '''
+                
                 #!/bin/bash
-                . Jenkins/venv/bin/activate  # Activate the virtual environment
-                robot --outputdir results robot_tests
+                sh 'mkdir -p results'
+                sh 'robot --outputdir results robot_tests'
                 '''
             }
         }
