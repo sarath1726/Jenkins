@@ -9,10 +9,3 @@ pipeline
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
 	    }
 	}
-
-        always {
-            // Publish Robot Framework results
-            robot outputPath: 'results'
-        }
-    }
-}
