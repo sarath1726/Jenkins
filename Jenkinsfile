@@ -13,9 +13,11 @@ pipeline {
                     sh '''
                     # Run the shell commands in a block
                         # Activate the virtual environment
-                        # Check if the venv directory exists
-                        if [ -d "venv" ]; then
-                            . venv/setup.sh
+                        
+                            source venv/bin/activate
+                            pip install --upgrade pip
+                            pip install robotframework pytest
+                            
                             echo "Virtual environment activated."
 
                             # Run Robot Framework tests
