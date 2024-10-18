@@ -25,6 +25,11 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
         '''
         stage('Run Robot Framework Tests') {
@@ -35,12 +40,7 @@ pipeline {
                 '''
             }
         }
-    }
+        '''
 
-    post {
-        always {
-            cleanWs()
-        }
-    }
-}
-'''
+    
+
