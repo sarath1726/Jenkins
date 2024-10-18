@@ -10,15 +10,15 @@ pipeline {
         }
         stage('Setup Virtual Environment') {
             steps {
-                // Create and activate the virtual environment, and install Robot Framework
+            script {
+                // Activate the existing virtual environment
                 sh '''
-                #!/bin/bash
-                Jenkins/venv/bin/python3 -m venv venv  # Create virtual environment if it doesn't exist
-                . venv/bin/activate  # Activate the virtual environment
-                pip install robotframework  # Install Robot Framework
+                source Jenkins/venv/bin/activate
                 '''
-            }
         }
+    }
+}
+
         stage('Run Robot Tests') {
             steps {
                 // Run Robot Framework tests
