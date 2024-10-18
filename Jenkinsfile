@@ -13,6 +13,7 @@ pipeline {
                 script {
                     // Activate your virtual environment and run commands within it
                     sh '''
+                    #!/bin/bash
                     source ./venv/bin/activate
                     '''
                 }
@@ -23,6 +24,7 @@ pipeline {
                 script {
                     // Create results directory and run Robot Framework tests
                     sh '''
+                    #!/bin/bash
                     mkdir -p results
                     robot --outputdir results robot_tests
                     '''
