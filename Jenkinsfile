@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'jenkins-python' } }
+    agent any
 
     stages {
         stage('Checkout SCM') {
