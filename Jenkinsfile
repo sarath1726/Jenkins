@@ -6,13 +6,12 @@ pipeline {
         ROBOT_TESTS_DIR = 'robot_tests'  // Directory where your Robot Framework tests are located
     }
     stages {
-        stage('Clone Repository') {
+        stages {
+        stage('Checkout SCM') {
             steps {
-                echo 'Cloning repository...'
-                git url: "$REPO_URL"
+                checkout scm
             }
         }
-
         stage('Run Robot Framework Tests') {
             steps {
                 echo 'Running Robot Framework tests...'
