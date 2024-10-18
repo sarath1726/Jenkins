@@ -1,7 +1,7 @@
 pipeline {
     agent any
    
- 	stages {
+    stages {
         stage('Checkout') {
             steps {
                 // Checkout the main branch
@@ -14,11 +14,11 @@ pipeline {
                 sh '''
                 #!/bin/bash
                 mkdir -p results
+                . venv/bin/activate  # Activate the virtual environment
                 robot --outputdir results robot_tests
                 '''
             }
         }
-
     }
 
     post {
@@ -28,4 +28,3 @@ pipeline {
         }
     }
 }
-
