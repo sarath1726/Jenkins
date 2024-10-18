@@ -11,17 +11,22 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 script {
-                    // Activate your virtual environment
-                    sh '. ./venv/bin/activate'
+                    // Activate your virtual environment and run commands within it
+                    sh '''
+                    source ./venv/bin/activate
+                    '''
                 }
             }
         }
         stage('Run Robot Tests') {
             steps {
-                // Run Robot Framework tests
-                sh 'mkdir -p results'
-                sh 'robot --outputdir results robot_tests'
-                '''
+                script {
+                    // Create results directory and run Robot Framework tests
+                    sh '''
+                    mkdir -p results
+                    robot --outputdir results robot_tests
+                    '''
+                }
             }
         }
     }
