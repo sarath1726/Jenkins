@@ -12,7 +12,7 @@ pipeline {
             steps {
                 // Run the robot tests using the full path to the robot binary
                 sh '''
-                    /opt/venv/bin/robot --outputdir results robot_tests
+                    robot --outputdir results robot_tests
                 '''
             }
         }
