@@ -21,9 +21,6 @@ pipeline {
                             echo "Virtual environment not found."
                             exit 1
                         fi
-                        
-                        // Verify the virtual environment is activated
-                        which python
                     '''
 
                         // Run the Robot Framework tests
