@@ -13,7 +13,7 @@ pipeline {
             script {
                 // Activate the existing virtual environment
                 sh '''
-                source Jenkins/venv/bin/activate
+                . Jenkins/venv/bin/activate
                 '''
         }
     }
@@ -24,7 +24,7 @@ pipeline {
                 // Run Robot Framework tests
                 sh '''
                 #!/bin/bash
-                . venv/bin/activate  # Activate the virtual environment
+                . Jenkins/venv/bin/activate  # Activate the virtual environment
                 robot --outputdir results robot_tests
                 '''
             }
