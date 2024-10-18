@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   
+    
     stages {
         stage('Checkout') {
             steps {
@@ -8,12 +8,22 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-        stage('Run Robot Tests') {
+        stage('Setup Virtual Environment') {
             steps {
-                // Activate the existing virtual environment and run Robot Framework tests
+                // Create and activate the virtual environment, and install Robot Framework
                 sh '''
                 #!/bin/bash
-                mkdir -p results
+                python3 -m venv venv  # Create virtual environment if it doesn't exist
+                . venv/bin/activate  # Activate the virtual environment
+                pip install robotframework  # Install Robot Framework
+                '''
+            }
+        }
+        stage('Run Robot Tests') {
+            steps {
+                // Run Robot Framework tests
+                sh '''
+                #!/bin/bash
                 . venv/bin/activate  # Activate the virtual environment
                 robot --outputdir results robot_tests
                 '''
