@@ -14,7 +14,6 @@ pipeline {
                 sh '''
                 #!/bin/bash
                 mkdir -p results
-                source . venv/bin/activate
                 robot --outputdir results robot_tests
                 '''
             }
