@@ -1,6 +1,7 @@
 pipeline {
     agent any
-    stages {
+   
+ 	stages {
         stage('Checkout') {
             steps {
                 // Checkout the main branch
@@ -12,7 +13,7 @@ pipeline {
                 // Activate the existing virtual environment and run Robot Framework tests
                 sh '''
                 mkdir -p results
-                . venv/bin/activate
+                source venv/bin/activate
                 robot --outputdir results robot_tests
                 '''
             }
