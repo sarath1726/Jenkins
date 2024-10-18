@@ -3,11 +3,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the same repository where Jenkinsfile is located
-                git 'https://github.com/sarath1726/Jenkins.git'
+                // Checkout the main branch
+                git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-
         stage('Run Robot Tests') {
             steps {
                 // Activate the existing virtual environment and run Robot Framework tests
