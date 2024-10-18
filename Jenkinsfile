@@ -12,7 +12,7 @@ pipeline {
             steps {
                 // Run the robot tests using the full path to the robot binary
                 sh '''
-                    robot --outputdir results robot_tests
+                    /usr/local/bin/robot --outputdir results robot_tests
                 '''
             }
         }
