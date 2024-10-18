@@ -15,7 +15,7 @@ pipeline {
                         # Activate the virtual environment
                         # Check if the venv directory exists
                         if [ -d "venv" ]; then
-                            . venv/bin/setup.sh
+                            . venv/bin/activate/setup.sh
                             echo "Virtual environment activated."
 
                             # Run Robot Framework tests
