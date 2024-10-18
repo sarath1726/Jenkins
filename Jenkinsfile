@@ -15,7 +15,7 @@ pipeline {
                         # Activate the virtual environment
                         # Check if the venv directory exists
                         if [ -d "venv" ]; then
-                            . venv/bin/activate'
+                            . venv/bin/activate
                         
                         // Verify the virtual environment is activated
                         which python
