@@ -28,7 +28,8 @@ pipeline {
 
     post {
         always {
-            junit allowEmptyResults: true, testResults: "results/output.xml"
+            // Publish Robot Framework results
+            robot outputPath: 'results'
         }
     }
 }
