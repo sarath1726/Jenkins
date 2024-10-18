@@ -1,43 +1,33 @@
 pipeline {
     agent any
 
+    environment {
+        REPO_URL = 'https://github.com/sarath1726/Jenkins.git'
+        ROBOT_TESTS_DIR = 'robot_tests'  // Directory where your Robot Framework tests are located
+    }
     stages {
-        stage('Checkout SCM') {
+        stage('Clone Repository') {
             steps {
-                checkout scm
+                echo 'Cloning repository...'
+                git url: "$REPO_URL"
             }
         }
-        stage('Activate Virtual Environment and Run Tests') {
-            steps {
-                script {
-                    sh '''
-                    # Run the shell commands in a block
-                        # Activate the virtual environment
-                        
-                            source venv/bin/activate
-                            pip install --upgrade pip
-                            pip install robotframework pytest
-                            
-                            echo "Virtual environment activated."
 
-                            # Run Robot Framework tests
-                            robot --outputdir results robot_tests
-                        else
-                            echo "Virtual environment not found."
-                            exit 1
-                        fi
-                    '''
-                }
+        stage('Run Robot Framework Tests') {
+            steps {
+                echo 'Running Robot Framework tests...'
+                sh '''
+                    robot $ROBOT_TESTS_DIR
+                '''
             }
         }
     }
+    
     post {
         always {
-            cleanWs()
+            echo 'Cleaning up and archiving results...'
+            archiveArtifacts artifacts: '**/output.xml', allowEmptyArchive: true
+            junit '**/output.xml'
         }
     }
 }
-
-
-    
-
