@@ -11,16 +11,14 @@ pipeline {
             steps {
                 script {
                     // Run the shell commands in a block
-                    sh '''
                         # Activate the virtual environment
-                        source venv/bin/activate
+                        sh 'source venv/bin/activate'
                         
                         # Verify the virtual environment is activated
                         which python
 
                         # Run the Robot Framework tests
-                        robot --outputdir results robot_tests
-                    '''
+                        sh 'robot --outputdir results robot_tests'
                 }
             }
         }
