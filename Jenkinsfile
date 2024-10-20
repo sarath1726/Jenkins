@@ -23,7 +23,12 @@ pipeline {
                 // Activate the virtual environment and Run Tests
                 sh'''
                 . $VENV_PATH/bin/activate
-                
+                echo "Current PATH: $PATH"
+                echo "Using Python executable: $(which python)"
+                echo "Python version: $(python --version)"
+                echo "Installed packages:"
+                pip list
+                robot --outputdir $RESULTS_DIR $TESTS_DIR
                 '''
             }
         }
