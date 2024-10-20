@@ -23,7 +23,7 @@ pipeline {
                 // Activate the virtual environment and Run Tests
                 sh'''
                 . /venv/bin/activate
-                venv/bin robot --outputdir robot_tests/results robot_tests
+                robot --outputdir robot_tests/results robot_tests  # Run Robot Framework tests
                 '''
             }
         }
