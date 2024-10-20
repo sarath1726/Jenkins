@@ -16,25 +16,12 @@ pipeline {
             }
         }
 
-        stage('Activate Virtual Environment and Install Dependencies') {
+        stage('Activate Virtual Environment and Run Robotframework Scripts') {
             steps {
                 // Create results directory
-                sh 'mkdir -p $RESULTS_DIR'
-
-                // Activate the virtual environment and ensure robotframework is installed
-                sh '''
+                sh 'mkdir -p $RESULTS_DIR
                 . $VENV_PATH/bin/activate
-
-                '''
-            }
-        }
-
-        stage('Run Robot Framework Tests') {
-            steps {
-                // Activate the virtual environment and run robot tests
-                sh '''
-                . $VENV_PATH/bin/activate
-                robot --outputdir $RESULTS_DIR $TESTS_DIR
+                . /venv/lib/python3.10/site-packages robot --outputdir $RESULTS_DIR $TESTS_DIR
                 '''
             }
         }
