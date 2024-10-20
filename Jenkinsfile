@@ -1,12 +1,13 @@
 pipeline {
     agent any
-
+'''
     environment {
         // Define environment variables if needed
         VENV_PATH = 'venv'  // Path to the virtual environment
         TESTS_DIR = 'robot_tests'  // Path to the directory containing Robot test cases
         RESULTS_DIR = 'robot_tests/results'  // Directory where test results will be stored
     }
+'''
 
     stages {
         stage('Clone Repository') {
