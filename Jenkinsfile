@@ -25,7 +25,6 @@ pipeline {
                 sh '''
                 . $VENV_PATH/bin/activate
 		 python -m pip install -r requirements.txt
- # Ensure that Robot Framework and dependencies are installed
                 '''
             }
         }
