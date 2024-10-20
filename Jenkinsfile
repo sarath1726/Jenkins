@@ -21,8 +21,8 @@ pipeline {
                 sh 'mkdir -p ${RESULTS_DIR}'
                 // Activate the virtual environment and Run Tests
                 sh '''
-                . Jenkins-doc/venv/bin/activate  # Activate the virtual environment
-                Jenkins-doc/venv/bin/robot --outputdir ${RESULTS_DIR} ${TESTS_DIR}  # Run Robot Framework tests
+                . venv/bin/activate  # Activate the virtual environment
+                . venv/bin/robot/ robot --outputdir ${RESULTS_DIR} ${TESTS_DIR}  # Run Robot Framework tests
                 '''
             }
         }
