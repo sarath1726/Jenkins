@@ -19,7 +19,7 @@ pipeline {
         stage('Set up Virtual Environment') {
             steps {
                 // Activate the pre-existing virtual environment
-                sh 'source $VENV_PATH/bin/activate'
+                sh '. $VENV_PATH/bin/activate'
             }
         }
 
