@@ -1,3 +1,4 @@
+'''
 pipeline {
     agent any
     
@@ -43,6 +44,34 @@ pipeline {
         }
         failure {
             echo 'Test execution failed.'
+        }
+    }
+}
+'''
+pipeline {
+    agent any
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Run Robot Framework Tests') {
+            steps {
+                // Activate the virtual environment and run the tests
+                sh '''
+                    source /opt/venv/bin/activate
+                    robot --outputdir results robot_tests
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up workspace
+            cleanWs()
         }
     }
 }
