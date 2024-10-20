@@ -1,5 +1,5 @@
 # Core Robot Framework
-robotframework==4.0.3  # Replace with the latest version as needed
+robotframework # Replace with the latest version as needed
 
 # Commonly used libraries for Robot Framework
 robotframework-seleniumlibrary==6.0.0  # For web testing with Selenium
