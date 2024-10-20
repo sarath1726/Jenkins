@@ -20,10 +20,8 @@ pipeline {
                 // Create results directory
                 sh 'mkdir -p ${RESULTS_DIR}'
                 // Activate the virtual environment and Run Tests
-                sh '''
-                . venv/bin/activate  # Activate the virtual environment
-                robot --outputdir ${RESULTS_DIR} ${TESTS_DIR}  # Run Robot Framework tests
-                '''
+                sh '. venv/bin/activate'  // Activate the virtual environment
+                sh 'robot --outputdir ${RESULTS_DIR} ${TESTS_DIR}'  // Run Robot Framework tests
             }
         }
 
