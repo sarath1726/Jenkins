@@ -22,7 +22,7 @@ pipeline {
                 // Activate the virtual environment and Run Tests
                 sh '''
                 . Jenkins-doc/venv/bin/activate  # Activate the virtual environment
-                robot --outputdir ${RESULTS_DIR} ${TESTS_DIR}  # Run Robot Framework tests
+                Jenkins-doc/venv/bin/robot --outputdir ${RESULTS_DIR} ${TESTS_DIR}  # Run Robot Framework tests
                 '''
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage('Publish Robot Framework Results') {
             steps {
                 // Publish the results
-                Jenkins-doc/venv/bin/robot outputPath: "${RESULTS_DIR}"  // Use the environment variable for the output path
+                robot outputPath: "${RESULTS_DIR}"  // Use the environment variable for the output path
             }
         }
     }
