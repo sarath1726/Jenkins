@@ -19,7 +19,7 @@ pipeline {
         stage('Activate Virtual Environment and Run Robotframework Scripts') {
             steps {
                 // Create results directory
-                sh 'mkdir -p $RESULTS_DIR
+                sh 'mkdir -p $RESULTS_DIR'
                 . $VENV_PATH/bin/activate
                 . /venv/lib/python3.10/site-packages robot --outputdir $RESULTS_DIR $TESTS_DIR
                 '''
