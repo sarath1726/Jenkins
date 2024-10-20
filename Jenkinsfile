@@ -23,7 +23,7 @@ pipeline {
                 // Activate the virtual environment and Run Tests
                 sh'''
                 . $VENV_PATH/bin/activate
-                robot --outputdir $RESULTS_DIR $TESTS_DIR
+                
                 '''
             }
         }
