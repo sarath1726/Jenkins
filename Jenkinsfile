@@ -16,22 +16,29 @@ pipeline {
             }
         }
 
-        stage('Set up Virtual Environment') {
+        stage('Activate Virtual Environment and Install Dependencies') {
             steps {
-                // Activate the pre-existing virtual environment
-                sh '. $VENV_PATH/bin/activate'
+                // Create results directory
+                sh 'mkdir -p $RESULTS_DIR'
+
+                // Activate the virtual environment and ensure robotframework is installed
+                sh '''
+                . $VENV_PATH/bin/activate
+                pip install -r requirements.txt  # Ensure that Robot Framework and dependencies are installed
+                '''
             }
         }
 
         stage('Run Robot Framework Tests') {
             steps {
-                // Create results directory if it doesn't exist
-                sh 'mkdir -p $RESULTS_DIR'
-
-                // Run Robot Framework tests from the test directory and store output in the results directory
-                sh 'robot --outputdir $RESULTS_DIR $TESTS_DIR'
+                // Activate the virtual environment and run robot tests
+                sh '''
+                . $VENV_PATH/bin/activate
+                robot --outputdir $RESULTS_DIR $TESTS_DIR
+                '''
             }
         }
+
 
         stage('Publish Robot Framework Results') {
             steps {
