@@ -1,32 +1,25 @@
 pipeline {
     agent any
-
-    environment {
-        REPO_URL = 'https://github.com/sarath1726/Jenkins.git'
-        ROBOT_TESTS_DIR = 'robot_tests'  // Directory where your Robot Framework tests are located
-    }
     stages {
-        stages {
-        stage('Checkout SCM') {
+        stage('Checkout') {
             steps {
-                checkout scm
+                git url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
-        stage('Run Robot Framework Tests') {
+        stage('Run Robot Tests') {
             steps {
-                echo 'Running Robot Framework tests...'
                 sh '''
-                    robot $ROBOT_TESTS_DIR
+                # Activate the virtual environment
+                source venv/bin/activate
+                # Run the Robot Framework tests
+                robot --outputdir robot_tests/results robot_tests
                 '''
             }
         }
-    }
-    
-    post {
-        always {
-            echo 'Cleaning up and archiving results...'
-            archiveArtifacts artifacts: '**/output.xml', allowEmptyArchive: true
-            junit '**/output.xml'
+        stage('Publish Results') {
+            steps {
+                robot outputPath: 'robot_tests/results'
+            }
         }
     }
 }
