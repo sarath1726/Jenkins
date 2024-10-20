@@ -23,7 +23,7 @@ pipeline {
                 // Activate the virtual environment and Run Tests
                 sh'''
                 . $VENV_PATH/bin/activate
-                . /venv/lib/python3.10/site-packages robot --outputdir $RESULTS_DIR $TESTS_DIR
+                robot --outputdir $RESULTS_DIR $TESTS_DIR
                 '''
             }
         }
