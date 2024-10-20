@@ -3,27 +3,27 @@ pipeline {
 
     environment {
         // Define environment variables if needed
-        VENV_PATH = './venv'  // Path to the virtual environment
-        TESTS_DIR = './robot_tests'  // Path to the directory containing Robot test cases
-        RESULTS_DIR = './robot_tests/results'  // Directory where test results will be stored
+        VENV_PATH = 'venv'  // Path to the virtual environment
+        TESTS_DIR = 'robot_tests'  // Path to the directory containing Robot test cases
+        RESULTS_DIR = 'robot_tests/results'  // Directory where test results will be stored
     }
 
     stages {
         stage('Clone Repository') {
             steps {
                 // Clone the repository (done automatically by Jenkins when job is set up with Git)
-                git url: 'https://github.com/sarath1726/Jenkins.git', branch: 'main'
+                git branch: 'main', url: 'https://github.com/sarath1726/Jenkins.git'
             }
         }
 
         stage('Activate Virtual Environment and Run Robotframework Scripts') {
             steps {
                 // Create results directory
-                sh 'mkdir -p $RESULTS_DIR'
+                sh 'mkdir -p robot_tests/results'
                 // Activate the virtual environment and Run Tests
                 sh'''
-                . $VENV_PATH/bin/activate
-                robot --outputdir $RESULTS_DIR $TESTS_DIR
+                . /venv/bin/activate
+                venv/bin robot --outputdir robot_tests/results robot_tests
                 '''
             }
         }
@@ -32,7 +32,7 @@ pipeline {
         stage('Publish Robot Framework Results') {
             steps {
                 // Publish the results
-                robot outputPath: RESULTS_DIR
+                robot outputPath: robot_tests/results
             }
         }
     }
@@ -40,7 +40,7 @@ pipeline {
     post {
         always {
             // Archive the test reports
-            archiveArtifacts artifacts: '$RESULTS_DIR/*.xml, $RESULTS_DIR/*.html', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'robot_tests/results/*.xml, robot_tests/results/*.html', allowEmptyArchive: true
         }
         success {
             echo 'Tests executed successfully.'
