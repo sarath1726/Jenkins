@@ -24,7 +24,8 @@ pipeline {
                 // Activate the virtual environment and ensure robotframework is installed
                 sh '''
                 . $VENV_PATH/bin/activate
-                pip install -r requirements.txt  # Ensure that Robot Framework and dependencies are installed
+		 python -m pip install -r requirements.txt
+ # Ensure that Robot Framework and dependencies are installed
                 '''
             }
         }
