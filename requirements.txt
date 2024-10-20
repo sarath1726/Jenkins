@@ -1,0 +1,17 @@
+# Core Robot Framework
+robotframework==4.0.3  # Replace with the latest version as needed
+
+# Commonly used libraries for Robot Framework
+robotframework-seleniumlibrary==6.0.0  # For web testing with Selenium
+robotframework-requests==0.9.3           # For API testing
+robotframework-databaselibrary==1.0.0    # For database testing
+robotframework-xml==2.0.0                 # For XML handling
+
+# Python dependencies (if needed)
+pytest==7.3.1                              # Replace with the latest version as needed
+pytest-robot==1.1.0                        # If you want to run Robot Framework tests with pytest
+
+# Additional useful libraries
+requests==2.28.1                           # For making HTTP requests
+selenium==4.20.0                           # The Selenium library for Python
+
