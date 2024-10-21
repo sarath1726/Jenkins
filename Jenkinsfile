@@ -59,9 +59,16 @@ pipeline {
 
         stage('Run Robot Framework Tests') {
             steps {
-                // Activate the virtual environment and run the tests
+                // Setup and Activate virtual environment and run the tests
                 sh '''
-                    source /opt/venv/bin/activate
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install robotframework
+                    pip install robotframework-requests 
+                    pip install robotframework-reportportal
+                    cd robot_tests
+                    echo "Current Directory $(pwd)"
+                    robot $(pwd)
                     robot --outputdir results robot_tests
                 '''
             }
