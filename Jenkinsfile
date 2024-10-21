@@ -1,7 +1,7 @@
 pipeline {
     // agent any
     environment {
-        RP_ENDPOINT = 'http://<ReportPortal_IP>:8080'
+        RP_ENDPOINT = 'http://localhost:8080'
         RP_API_KEY = 'Rp-api)key_4CzxOegrT6eOr6EclV1haMDvH2O9PQq4Jgl8Y84WNvb4CFmlrpfMYDZdJfXY_uaa'
         RP_PROJECT = 'superadmin_personal'
         RP_LAUNCH = 'Robot Framework Launch'
