@@ -68,7 +68,6 @@ pipeline {
                     pip install robotframework-reportportal
                     cd robot_tests
                     echo "Current Directory $(pwd)"
-                    robot $(pwd)
                     robot --outputdir results robot_tests
                 '''
             }
