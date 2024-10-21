@@ -37,7 +37,7 @@ pipeline {
         stage('Publish Robot Framework Results') {
             steps {
                 // Publish the results
-                robot outputPath: "${RESULTS_DIR}"  // Use the environment variable for the output path
+                robot outputPath: "./robot_tests/results"  // Use the environment variable for the output path
             }
         }
     }
