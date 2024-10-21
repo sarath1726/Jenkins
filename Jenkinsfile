@@ -66,7 +66,7 @@ pipeline {
                     pip install robotframework
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
-                    cd robot_tests
+                    # cd robot_tests
                     echo "Current Directory $(pwd)"
                     robot --outputdir results robot_tests
                 '''
