@@ -38,7 +38,7 @@ pipeline {
         stage('Publish Robot Framework Results') {
             steps {
                 // Publish the results
-                robot outputPath: "./robot_tests/results"  // Use the environment variable for the output path
+                robot outputPath: "./results"  // Use the environment variable for the output path
             }
         }
     }
@@ -46,7 +46,7 @@ pipeline {
     post {
         always {
             // Archive the test reports
-            archiveArtifacts artifacts: "./robot_tests/results/*.xml, ./robot_tests/results/*.html", allowEmptyArchive: true
+            archiveArtifacts artifacts: "./results/*.xml, ./results/*.html", allowEmptyArchive: true
         }
         success {
             echo 'Tests executed successfully.'
