@@ -1,5 +1,5 @@
 pipeline {
-    // agent any
+    agent any
     environment {
         RP_ENDPOINT = 'http://localhost:8080'
         RP_API_KEY = 'Rp-api)key_4CzxOegrT6eOr6EclV1haMDvH2O9PQq4Jgl8Y84WNvb4CFmlrpfMYDZdJfXY_uaa'
