@@ -23,13 +23,14 @@ pipeline {
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
+                    
                     # Run Robot Framework tests with ReportPortal listener
-                    robot --listener robotframework_reportportal.listener \
-                          --variable RP_ENDPOINT:"${RP_ENDPOINT}" \
-                          --variable RP_API_KEY:"${RP_API_KEY}" \
-                          --variable RP_PROJECT:"{$RP_PROJECT}" \
-                          --variable RP_LAUNCH:"${RP_LAUNCH}" \
-                          ./robot_tests
+                    #robot --listener robotframework_reportportal.listener \
+                    #      --variable RP_ENDPOINT:"${RP_ENDPOINT}" \
+                    #      --variable RP_API_KEY:"${RP_API_KEY}" \
+                    #      --variable RP_PROJECT:"{$RP_PROJECT}" \
+                    #      --variable RP_LAUNCH:"${RP_LAUNCH}" \
+                    #      ./robot_tests
                     robot --outputdir results robot_tests
                 '''
             }
