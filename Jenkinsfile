@@ -46,7 +46,16 @@ pipeline {
     post {
         always {
             // Archive the test reports
-            archiveArtifacts artifacts: "./results/*.xml, ./results/*.html", allowEmptyArchive: true
+            // archiveArtifacts artifacts: "./results/*.xml, ./results/*.html", allowEmptyArchive: true
+
+            // Publish test results in Jenkins (optional)
+        publishHTML(target: [
+            reportName : 'Robot Framework Report',
+            reportDir  : 'results',
+            reportFiles: 'report.html',
+            alwaysLinkToLastBuild: true,
+            keepAll    : true
+        ])
         }
         success {
             echo 'Tests executed successfully.'
