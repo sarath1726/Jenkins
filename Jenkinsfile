@@ -7,12 +7,12 @@ pipeline {
         RP_LAUNCH = 'Robot Framework Launch'
     }
     stages {
-        '''stage('Checkout SCM') {
+        stage('Checkout SCM') {
             steps {
                 checkout scm
             }
-        }
-'''
+        } 
+        
         stage('Run Robot Framework Tests') {
             steps {
                 // Setup and Activate virtual environment and run the tests
