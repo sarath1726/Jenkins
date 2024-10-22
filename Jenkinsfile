@@ -23,7 +23,7 @@ pipeline {
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
-                    
+                    mkdir -p results
                     # Run Robot Framework tests with ReportPortal listener
                     #robot --listener robotframework_reportportal.listener \
                     #      --variable RP_ENDPOINT:"${RP_ENDPOINT}" \
