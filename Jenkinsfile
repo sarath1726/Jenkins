@@ -67,3 +67,4 @@ pipeline {
             echo 'Test execution failed.'
         }
     }
+}
