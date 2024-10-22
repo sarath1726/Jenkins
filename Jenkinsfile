@@ -7,12 +7,12 @@ pipeline {
         RP_LAUNCH = 'Robot Framework Launch'
     }
     stages {
-        stage('Checkout SCM') {
+        '''stage('Checkout SCM') {
             steps {
                 checkout scm
             }
         }
-
+'''
         stage('Run Robot Framework Tests') {
             steps {
                 // Setup and Activate virtual environment and run the tests
@@ -41,13 +41,21 @@ pipeline {
                 robot outputPath: "./results"
             }
         }
+        stage('Push Results to GitHub') {
+            steps {
+                // Add Robot result files to Git
+                sh """
+                    git config user.email "sarathas907@gmail.com"
+                    git config user.name "sarath1726"
+                    git add results/output.xml results/report.html results/log.html
+                    git commit -m "Add Robot Framework test results"
+                    git push origin main
+                """
+            }
+        }
     }
         
     post {
-        always {
-            // Publish Robot Framework results
-            robot outputPath: 'results'
-        }
         success {
             echo 'Tests executed successfully.'
         }
@@ -55,4 +63,3 @@ pipeline {
             echo 'Test execution failed.'
         }
     }
-}
