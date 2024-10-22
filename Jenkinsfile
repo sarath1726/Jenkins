@@ -18,6 +18,12 @@ pipeline {
             steps {
                 // Setup and Activate virtual environment and run the tests
                 sh '''
+                
+                    echo "RP_ENDPOINT: $RP_ENDPOINT"
+                    echo "RP_API_KEY: $RP_API_KEY"
+                    echo "RP_PROJECT: $RP_PROJECT"
+                    echo "RP_LAUNCH: $RP_LAUNCH"
+                    
                     python3 -m venv venv
                     . venv/bin/activate
                     pip install robotframework
@@ -25,7 +31,9 @@ pipeline {
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
                     mkdir -p results
+                    
                     # Run Robot Framework tests with ReportPortal listener
+                    
                     robot --listener robotframework_reportportal.listener \
                           --variable RP_ENDPOINT:"http://localhost:8080" \
                           --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
@@ -36,6 +44,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Publish Robot Framework Results') {
             steps {
                 // Publish the results
