@@ -1,11 +1,12 @@
 pipeline {
     agent any
     environment {
-        RP_ENDPOINT = 'http://localhost:8080'
-        RP_API_KEY = 'Rp-api)key_4CzxOegrT6eOr6EclV1haMDvH2O9PQq4Jgl8Y84WNvb4CFmlrpfMYDZdJfXY_uaa'
-        RP_PROJECT = 'superadmin_personal'
-        RP_LAUNCH = 'Robot Framework Launch'
+        RP_ENDPOINT = "http://localhost:8080"       // Replace with your ReportPortal URL
+        RP_API_KEY = "eportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr"   // Replace with your ReportPortal API key
+        RP_PROJECT = "superadmin_personal"          // Replace with your project name
+        RP_LAUNCH = "Robot Framework Launch"        // Specify a name for your launch
     }
+    
     stages {
         stage('Checkout SCM') {
             steps {
@@ -25,13 +26,13 @@ pipeline {
                     echo "Current Directory $(pwd)"
                     mkdir -p results
                     # Run Robot Framework tests with ReportPortal listener
-                    #robot --listener robotframework_reportportal.listener \
-                    #      --variable RP_ENDPOINT:"${RP_ENDPOINT}" \
-                    #      --variable RP_API_KEY:"${RP_API_KEY}" \
-                    #      --variable RP_PROJECT:"{$RP_PROJECT}" \
-                    #      --variable RP_LAUNCH:"${RP_LAUNCH}" \
-                    #      ./robot_tests
-                    robot --outputdir results robot_tests
+                    robot --listener robotframework_reportportal.listener \
+                          --variable RP_ENDPOINT:"http://localhost:8080" \
+                          --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
+                          --variable RP_PROJECT:"superadmin_personal" \
+                          --variable RP_LAUNCH:"Robot Framework Launch" \
+                          --outputdir ./results .
+                    # robot --outputdir results robot_tests
                 '''
             }
         }
