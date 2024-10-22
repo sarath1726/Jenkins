@@ -41,18 +41,6 @@ pipeline {
                 robot outputPath: "./results"
             }
         }
-        stage('Push Results to GitHub') {
-            steps {
-                // Add Robot result files to Git
-                sh """
-                    git config user.email "sarathas907@gmail.com"
-                    git config user.name "sarath1726"
-                    git add results/output.xml results/report.html results/log.html
-                    git commit -m "Add Robot Framework test results"
-                    git push origin main
-                """
-            }
-        }
     }
         
     post {
