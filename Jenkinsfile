@@ -53,12 +53,11 @@ pipeline {
         always {
             echo 'This will always run, even if the build fails.'
         }
-            success {
-                echo 'Pipeline completed successfully.'
-            }
-            failure {
-                echo 'Test execution failed.'
-            }
+        success {
+            echo 'Pipeline completed successfully.'
+        }
+        failure {
+            echo 'Test execution failed.'
         }
     }
 }
