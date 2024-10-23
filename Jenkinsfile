@@ -42,8 +42,8 @@ pipeline {
             steps {
                 sh '''
                     #!/bin/bash
-                    mkdir -p ${params.TEST_DIR}/results
-                    # mkdir -p results
+                    # mkdir -p ${params.TEST_DIR}/results
+                    mkdir -p results
                     
                     # Run Robot Framework tests with ReportPortal listener
                     robot --listener robotframework_reportportal.listener \
