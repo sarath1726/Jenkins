@@ -24,14 +24,7 @@ pipeline {
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
-                '''
-            }
-        }
 
-        stage('Run the Robot Scripts') {
-            steps {
-                // Run the robot scripts
-                sh '''
                     mkdir -p results
                     
                     # Run Robot Framework tests with ReportPortal listener
