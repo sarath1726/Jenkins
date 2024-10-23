@@ -51,6 +51,8 @@ pipeline {
         
     post {
         always {
+            echo 'This will always run, even if the build fails.'
+        }
             success {
                 echo 'Pipeline completed successfully.'
             }
