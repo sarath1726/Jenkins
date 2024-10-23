@@ -8,8 +8,6 @@ pipeline {
     }
 
     stages {
-       
-        
         stage('Create and Activate Virtual Environment') {
             steps {
                 // Create and activate virtual environment
