@@ -25,7 +25,7 @@ pipeline {
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
 
-                    mkdir -p results
+                    mkdir -p robot_tests/results
                     
                     # Run Robot Framework tests with ReportPortal listener
                     robot --listener robotframework_reportportal.listener \
@@ -45,6 +45,13 @@ pipeline {
             steps {
                 // Publish the results
                 robot outputPath: "./results"
+            }
+        }
+
+        stage('Archive Results') {
+            steps {
+                // Archive the results for future reference
+                archiveArtifacts artifacts: 'robot_tests/results/*', allowEmptyArchive: true
             }
         }
     }
