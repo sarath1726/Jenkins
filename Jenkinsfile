@@ -8,11 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout SCM') {
-            steps {
-                checkout scm
-            }
-        } 
+       
         
         stage('Create and Activate Virtual Environment') {
             steps {
