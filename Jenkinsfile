@@ -31,7 +31,7 @@ pipeline {
                     #!/bin/bash
                     
                     python3 -m venv venv
-                    . venv/bin/activate
+                    bash -c . venv/bin/activate
                     pip install robotframework
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
