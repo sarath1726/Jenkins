@@ -45,7 +45,7 @@ pipeline {
                           --variable RP_PROJECT:"superadmin_personal" \
                           --variable RP_LAUNCH:"Robot Framework Launch" \
                           # --outputdir ./results .
-                          --outputdir ${params.TEST_DIR}/results \
+                          --outputdir results \
                           ${params.TEST_DIR}
                     
                     # robot --outputdir results robot_tests
