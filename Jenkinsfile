@@ -28,15 +28,13 @@ pipeline {
             steps {
                 // Setup and Activate virtual environment and run the tests
                 sh '''
-                    #!/bin/bash
-                    
                     python3 -m venv venv
-                    bash -c . venv/bin/activate
+                    . venv/bin/activate
                     pip install robotframework
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
-                    
+                
                     mkdir -p ${params.TEST_DIR}/results
                     # mkdir -p results
                     
