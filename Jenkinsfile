@@ -1,32 +1,22 @@
 pipeline {
     agent any
     environment {
-        RP_ENDPOINT = "http://traefik:8080"       // Replace with your ReportPortal URL
+        RP_ENDPOINT = "http://traefik:8080"                                                                  // Replace with your ReportPortal URL
         RP_API_KEY = "ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr"   // Replace with your ReportPortal API key
-        RP_PROJECT = "superadmin_personal"          // Replace with your project name
-        RP_LAUNCH = "Robot Framework Launch"        // Specify a name for your launch
+        RP_PROJECT = "superadmin_personal"                                                                   // Replace with your project name
+        RP_LAUNCH = "Robot Framework Launch"                                                                 // Specify a name for your launch
     }
-    // parameters {
-    //    string(name: 'TEST_DIR', defaultValue: 'robot_tests', description: 'Directory containing the Robot Framework test cases')
-    //}
-    
+
     stages {
         stage('Checkout SCM') {
             steps {
                 checkout scm
             }
         } 
-
-      //  stage('List Test Cases') {
-       //     steps {
-        //        // List all Robot Framework test cases inside the ${TEST_DIR} directory
-         //       sh 'find ${TEST_DIR} -name "*.robot"'
-           // }
-        }
         
         stage('Create and Activate Virtual Environment') {
             steps {
-                // Setup and Activate virtual environment
+                // Create and activate virtual environment
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
@@ -34,8 +24,14 @@ pipeline {
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
-                
-                    # mkdir -p ${params.TEST_DIR}/results
+                '''
+            }
+        }
+
+        stage('Run the Robot Scripts') {
+            steps {
+                // Run the robot scripts
+                sh '''
                     mkdir -p results
                     
                     # Run Robot Framework tests with ReportPortal listener
@@ -45,9 +41,8 @@ pipeline {
                           --variable RP_PROJECT:"superadmin_personal" \
                           --variable RP_LAUNCH:"Robot Framework Launch" \
                           --outputdir ./results .
-                          #--outputdir ${params.TEST_DIR}/results \
-                          # ${params.TEST_DIR}
-                    
+
+                    # Run Robot Framework tests without ReportPortal
                     # robot --outputdir results robot_tests
                 '''
             }
@@ -57,7 +52,6 @@ pipeline {
             steps {
                 // Publish the results
                 robot outputPath: "./results"
-                // robot outputPath: "${params.TEST_DIR}/results"
             }
         }
     }
