@@ -8,6 +8,17 @@ pipeline {
     }
 
     stages {
+
+        stage('Clean Previous Results') {
+            steps {
+                // Remove the 'results' directory if it exists
+                sh '''
+                    if [ -d "results" ]; then
+                        rm -rf results
+                    fi
+                '''
+            }
+        }
         stage('Create and Activate Virtual Environment') {
             steps {
                 // Create and activate virtual environment
