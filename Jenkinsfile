@@ -24,9 +24,9 @@ pipeline {
             }
         }
         
-        stage('Run Robot Framework Tests') {
+        stage('Create and Activate Virtual Environment') {
             steps {
-                // Setup and Activate virtual environment and run the tests
+                // Setup and Activate virtual environment
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
@@ -34,7 +34,13 @@ pipeline {
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
-                
+                '''
+            }
+        }
+        
+        stage('Run Robot Framework Tests') {
+            steps {
+                sh '''
                     mkdir -p ${params.TEST_DIR}/results
                     # mkdir -p results
                     
