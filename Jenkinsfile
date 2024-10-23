@@ -43,8 +43,8 @@ pipeline {
         
         stage('Publish Robot Framework Results') {
             steps {
-                // Publish the results
-                robot outputPath: "./results"
+                // Publish the results from the results subdirectory
+                robot outputPath: 'robot_tests/results'
             }
         }
 
