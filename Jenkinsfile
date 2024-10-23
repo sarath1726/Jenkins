@@ -41,6 +41,7 @@ pipeline {
         stage('Run Robot Framework Tests') {
             steps {
                 sh '''
+                    #!/bin/bash
                     mkdir -p ${params.TEST_DIR}/results
                     # mkdir -p results
                     
