@@ -51,14 +51,12 @@ pipeline {
         
     post {
         always {
-            echo 'Cleaning up workspace...'
-            cleanWs()  // Cleans up the workspace after the pipeline execution
-        }
-        success {
-            echo 'Tests executed successfully.'
-        }
-        failure {
-            echo 'Test execution failed.'
+            success {
+                echo 'Pipeline completed successfully.'
+            }
+            failure {
+                echo 'Test execution failed.'
+            }
         }
     }
 }
