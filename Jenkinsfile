@@ -34,14 +34,7 @@ pipeline {
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
-                '''
-            }
-        }
-        
-        stage('Run Robot Framework Tests') {
-            steps {
-                sh '''
-                    #!/bin/bash
+                
                     # mkdir -p ${params.TEST_DIR}/results
                     mkdir -p results
                     
