@@ -33,7 +33,7 @@ pipeline {
                           --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
                           --variable RP_PROJECT:"superadmin_personal" \
                           --variable RP_LAUNCH:"Robot Framework Launch" \
-                          --outputdir ./results .
+                          --outputdir robot_tests/results .
 
                     # Run Robot Framework tests without ReportPortal
                     # robot --outputdir results robot_tests
@@ -48,12 +48,6 @@ pipeline {
             }
         }
 
-        stage('Archive Results') {
-            steps {
-                // Archive the results for future reference
-                archiveArtifacts artifacts: 'robot_tests/results/*', allowEmptyArchive: true
-            }
-        }
     }
         
     post {
