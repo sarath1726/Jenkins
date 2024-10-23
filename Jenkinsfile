@@ -6,9 +6,9 @@ pipeline {
         RP_PROJECT = "superadmin_personal"          // Replace with your project name
         RP_LAUNCH = "Robot Framework Launch"        // Specify a name for your launch
     }
-    parameters {
-        string(name: 'TEST_DIR', defaultValue: 'robot_tests', description: 'Directory containing the Robot Framework test cases')
-    }
+    // parameters {
+    //    string(name: 'TEST_DIR', defaultValue: 'robot_tests', description: 'Directory containing the Robot Framework test cases')
+    //}
     
     stages {
         stage('Checkout SCM') {
@@ -17,11 +17,11 @@ pipeline {
             }
         } 
 
-        stage('List Test Cases') {
-            steps {
-                // List all Robot Framework test case files in the specified directory
-                sh 'find ${TEST_DIR} -name "*.robot"'
-            }
+      //  stage('List Test Cases') {
+       //     steps {
+        //        // List all Robot Framework test cases inside the ${TEST_DIR} directory
+         //       sh 'find ${TEST_DIR} -name "*.robot"'
+           // }
         }
         
         stage('Create and Activate Virtual Environment') {
@@ -44,9 +44,9 @@ pipeline {
                           --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
                           --variable RP_PROJECT:"superadmin_personal" \
                           --variable RP_LAUNCH:"Robot Framework Launch" \
-                          # --outputdir ./results .
-                          --outputdir results \
-                          ${params.TEST_DIR}
+                          --outputdir ./results .
+                          #--outputdir ${params.TEST_DIR}/results \
+                          # ${params.TEST_DIR}
                     
                     # robot --outputdir results robot_tests
                 '''
@@ -56,8 +56,8 @@ pipeline {
         stage('Publish Robot Framework Results') {
             steps {
                 // Publish the results
-                // robot outputPath: "./results"
-                robot outputPath: "${params.TEST_DIR}/results"
+                robot outputPath: "./results"
+                // robot outputPath: "${params.TEST_DIR}/results"
             }
         }
     }
