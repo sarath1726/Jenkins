@@ -28,14 +28,18 @@ pipeline {
             steps {
                 // Setup and Activate virtual environment and run the tests
                 sh '''
+                    #!/bin/bash
+                    
                     python3 -m venv venv
                     . venv/bin/activate
                     pip install robotframework
                     pip install robotframework-requests 
                     pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
+                    
                     mkdir -p ${params.TEST_DIR}/results
                     # mkdir -p results
+                    
                     # Run Robot Framework tests with ReportPortal listener
                     robot --listener robotframework_reportportal.listener \
                           --variable RP_ENDPOINT:"http://traefik:8080" \
@@ -45,6 +49,7 @@ pipeline {
                           # --outputdir ./results .
                           --outputdir ${params.TEST_DIR}/results \
                           ${params.TEST_DIR}
+                    
                     # robot --outputdir results robot_tests
                 '''
             }
