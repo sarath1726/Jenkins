@@ -40,7 +40,8 @@ pipeline {
                     #      --outputdir robot_tests/results .
 
                     # Run Robot Framework tests without ReportPortal
-                    robot --outputdir results robot_tests
+                    #robot --outputdir results robot_tests
+                    robot --outputdir robot_tests/results .
                 '''
             }
         }
