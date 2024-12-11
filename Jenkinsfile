@@ -17,7 +17,7 @@ pipeline {
                     . venv/bin/activate
                     pip install robotframework
                     pip install robotframework-requests 
-                    pip install robotframework-reportportal
+                    # pip install robotframework-reportportal
                     echo "Current Directory $(pwd)"
 
                     mkdir -p robot_tests/results
