@@ -21,8 +21,15 @@ pipeline {
                     echo "Current Directory $(pwd)"
 
                     mkdir -p robot_tests/results
-                    
-                    # Run Robot Framework tests with ReportPortal listener
+                '''
+            }
+        }
+
+        stage('Test Execution') {
+            steps {
+                // Exectute the robot tests
+                sh '''
+                # Run Robot Framework tests with ReportPortal listener
                     #robot --listener robotframework_reportportal.listener \
                     #      --variable RP_ENDPOINT:"http://traefik:8080" \
                     #      --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
