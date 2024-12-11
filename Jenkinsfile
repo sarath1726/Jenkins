@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    environment {
-        RP_ENDPOINT = "http://traefik:8080"                                                                  // Replace with your ReportPortal URL
-        RP_API_KEY = "ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr"   // Replace with your ReportPortal API key
-        RP_PROJECT = "superadmin_personal"                                                                   // Replace with your project name
-        RP_LAUNCH = "Robot Framework Launch"                                                                 // Specify a name for your launch
-    }
+    // environment {
+    //     RP_ENDPOINT = "http://traefik:8080"                                                                  // Replace with your ReportPortal URL
+    //     RP_API_KEY = "ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr"   // Replace with your ReportPortal API key
+    //     RP_PROJECT = "superadmin_personal"                                                                   // Replace with your project name
+    //     RP_LAUNCH = "Robot Framework Launch"                                                                 // Specify a name for your launch
+    // }
 
     stages {
         
@@ -23,15 +23,15 @@ pipeline {
                     mkdir -p robot_tests/results
                     
                     # Run Robot Framework tests with ReportPortal listener
-                    robot --listener robotframework_reportportal.listener \
-                          --variable RP_ENDPOINT:"http://traefik:8080" \
-                          --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
-                          --variable RP_PROJECT:"superadmin_personal" \
-                          --variable RP_LAUNCH:"Robot Framework Launch" \
-                          --outputdir robot_tests/results .
+                    #robot --listener robotframework_reportportal.listener \
+                    #      --variable RP_ENDPOINT:"http://traefik:8080" \
+                    #      --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
+                    #      --variable RP_PROJECT:"superadmin_personal" \
+                    #      --variable RP_LAUNCH:"Robot Framework Launch" \
+                    #      --outputdir robot_tests/results .
 
                     # Run Robot Framework tests without ReportPortal
-                    # robot --outputdir results robot_tests
+                    robot --outputdir results robot_tests
                 '''
             }
         }
