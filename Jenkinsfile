@@ -22,7 +22,6 @@ pipeline {
                 // Create and activate virtual environment
                 sh '''
                     python3 -m venv venv
-                    echo "Current Directory $(pwd)"
                     
                     # mkdir -p robot_tests/results
                 '''
@@ -35,14 +34,16 @@ pipeline {
                 sh '''
                     . venv/bin/activate
                     python --version
-                    pwd
+                    echo "Current Directory $(pwd)"
+                    ls
+                    
                     # Run Robot Framework tests with ReportPortal listener
                     #robot --listener robotframework_reportportal.listener \
                           --variable RP_ENDPOINT:"http://traefik:8080" \
                           --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
                           --variable RP_PROJECT:"superadmin_personal" \
                           --variable RP_LAUNCH:"Robot Framework Launch" \
-                          --outputdir 
+                          --outputdir templates/test_openbmc_setup.robot .
 
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
@@ -51,12 +52,12 @@ pipeline {
             }
         }
         
-        stage('Publish Robot Framework Results') {
-            steps {
-                // Publish the results from the results subdirectory
-                robot outputPath: 'robot_tests/results'
-            }
-        }
+        // stage('Publish Robot Framework Results') {
+        //     steps {
+        //         // Publish the results from the results subdirectory
+        //         robot outputPath: '/results'
+        //     }
+        // }
 
     }
         
