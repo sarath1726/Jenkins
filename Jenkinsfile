@@ -22,7 +22,7 @@ pipeline {
                     . myenv/bin/activate
                     python --version
                     pip install --upgrade pip
-                    pip install requirements.txt
+                    pip install -r requirements.txt
 
                     # mkdir -p robot_tests/results
                 '''
