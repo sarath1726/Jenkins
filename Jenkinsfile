@@ -43,7 +43,7 @@ pipeline {
                           --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
                           --variable RP_PROJECT:"superadmin_personal" \
                           --variable RP_LAUNCH:"Robot Framework Launch" \
-                          #--outputdir templates/test_openbmc_setup.robot .
+                          --outputdir templates/test_openbmc_setup.robot .
 
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
