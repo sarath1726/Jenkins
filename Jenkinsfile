@@ -8,7 +8,12 @@ pipeline {
     // }
 
     stages {
-        
+        stage('Clone Repository') {
+            steps {
+                // Replace the following URL with the URL of your public Git repository
+                git url: 'https://github.com/openbmc/openbmc-test-automation.git', branch: 'master'
+            }
+        }
         stage('Create and Activate Virtual Environment') {
             steps {
                 // Create and activate virtual environment
