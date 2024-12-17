@@ -18,8 +18,12 @@ pipeline {
             steps {
                 // Create and activate virtual environment
                 sh '''
-                    
-                    
+                    python3 -m venv myenv        
+                    . myenv/bin/activate
+                    python --version
+                    pip install --upgrade pip
+                    pip install requirements.txt
+
                     # mkdir -p robot_tests/results
                 '''
             }
@@ -29,19 +33,18 @@ pipeline {
             steps {
                 // Exectute the robot tests
                 sh '''
-                    python3 -m venv venv
-                    . venv/bin/activate
+                    . myenv/bin/activate
                     python --version
                     echo "Current Directory $(pwd)"
                     ls
                     
                     # Run Robot Framework tests with ReportPortal listener
-                     #robot --listener robotframework_reportportal.listener \
-                     #      --variable RP_ENDPOINT:"http://traefik:8080" \
-                     #      --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
-                     #      --variable RP_PROJECT:"superadmin_personal" \
-                     #      --variable RP_LAUNCH:"Robot Framework Launch" \
-                     #      --outputdir templates/test_openbmc_setup.robot .
+                    #robot --listener robotframework_reportportal.listener \
+                    #       --variable RP_ENDPOINT:"http://traefik:8080" \
+                    #       --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
+                    #       --variable RP_PROJECT:"superadmin_personal" \
+                    #       --variable RP_LAUNCH:"Robot Framework Launch" \
+                    #       --outputdir templates/test_openbmc_setup.robot .
 
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
