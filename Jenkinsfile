@@ -17,37 +17,36 @@ pipeline {
                 '''
             }
         }
-        stage('Create and Activate Virtual Environment') {
+        stage('Create a Python Virtual Environment') {
             steps {
                 // Create and activate virtual environment
                 sh '''
                     python3 -m venv venv
-                    . venv/bin/activate
-                    python --version
                     echo "Current Directory $(pwd)"
-
-                    #mkdir -p robot_tests/results
+                    
+                    # mkdir -p robot_tests/results
                 '''
             }
         }
 
-        stage('Test Execution') {
+        stage('Activate the Virtual Environment and Execute the Test') {
             steps {
                 // Exectute the robot tests
                 sh '''
                     . venv/bin/activate
-                
+                    python --version
+                    pwd
                     # Run Robot Framework tests with ReportPortal listener
                     #robot --listener robotframework_reportportal.listener \
-                    #      --variable RP_ENDPOINT:"http://traefik:8080" \
-                    #      --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
-                    #      --variable RP_PROJECT:"superadmin_personal" \
-                    #      --variable RP_LAUNCH:"Robot Framework Launch" \
-                    #      --outputdir robot_tests/results .
+                          --variable RP_ENDPOINT:"http://traefik:8080" \
+                          --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
+                          --variable RP_PROJECT:"superadmin_personal" \
+                          --variable RP_LAUNCH:"Robot Framework Launch" \
+                          --outputdir 
 
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
-                    robot --outputdir robot_tests/results .
+                    #robot --outputdir robot_tests/results .
                 '''
             }
         }
