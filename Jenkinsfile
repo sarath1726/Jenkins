@@ -23,12 +23,10 @@ pipeline {
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
-                    pip install robotframework
-                    pip install robotframework-requests 
-                    # pip install robotframework-reportportal
+                    python --version
                     echo "Current Directory $(pwd)"
 
-                    mkdir -p robot_tests/results
+                    #mkdir -p robot_tests/results
                 '''
             }
         }
