@@ -48,7 +48,16 @@ pipeline {
 
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
-                    robot -v 172.20.194.31 templates/test_openbmc_setup.robot
+                    #robot -v 172.20.194.31 templates/test_openbmc_setup.robot
+                    robot -v OPENBMC_HOST:172.20.194.31 \
+                          -v OPENBMC_USERNAME:chetan.gubbi \
+                          -v OPENBMC_PASSWORD:Krutrim@234 \
+                          -v MANAGER_ID:1 \
+                          -v CHASSIS_ID:1 \
+                          -v SYSTEM_ID:s \
+                          -v IPMI_USERNAME:chetan.gubbi \
+                          templates/test_openbmc_setup.robot
+                          
                 '''
             }
         }
