@@ -23,6 +23,7 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
+                    sudo apt-get update && sudo apt-get install -y ipmitool
 
                     # mkdir -p robot_tests/results
                 '''
