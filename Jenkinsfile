@@ -52,7 +52,7 @@ pipeline {
                           -v CHASSIS_ID:1 \
                           -v SYSTEM_ID:s \
                           -v IPMI_USERNAME:chetan.gubbi \
-                          templates/test_openbmc_setup.robot
+                          templates/test_openbmc_setup.robot --reportportal
                             
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
