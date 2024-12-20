@@ -24,7 +24,7 @@ pipeline {
                     pip install --upgrade pip
                     pip install -r requirements.txt
 
-                    python3 /lib/bmc_ssh_utility.py
+                    python3 lib/bmc_ssh_utility.py
                     def update_prompt(file_path, old_prompt, new_prompt):
                         try:
                             with open(file_path, 'r') as file:
