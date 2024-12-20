@@ -23,7 +23,6 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                    python update_bmc_ssh_utils.py
                      
                     # mkdir -p robot_tests/results
                 '''
@@ -38,6 +37,7 @@ pipeline {
                     python --version
                     echo "Current Directory $(pwd)"
                     ls
+                    python update_bmc_ssh_utils.py
                     
                     # Run Robot Framework tests with ReportPortal listener
                     #robot --listener robotframework_reportportal.listener \
