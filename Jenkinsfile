@@ -56,9 +56,8 @@ pipeline {
                           -v CHASSIS_ID:1 \
                           -v SYSTEM_ID:s \
                           -v IPMI_USERNAME:chetan.gubbi \
-                          templates/test_openbmc_setup.robot
                           -v prompt:"r12spd:~$" \
-                          lib/bmc_ssh_utils.py
+                          templates/test_openbmc_setup.robot lib/bmc_ssh_utils.py
                           
                 '''
             }
