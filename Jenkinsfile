@@ -38,7 +38,7 @@ pipeline {
                         content = file.read()
                     
                     # Replace the prompt
-                    pattern = r'"prompt":\s*["\']{}["\']'.format(re.escape(old_prompt))
+                    pattern = '"prompt":\\s*["\']' + old_prompt.replaceAll("(['\"\\\\])", "\\\\$1") + '"'
                     updated_content = re.sub(pattern, f'"prompt": "{new_prompt}"', content)
                     
                     # Write back to the file
