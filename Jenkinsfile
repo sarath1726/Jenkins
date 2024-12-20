@@ -23,6 +23,38 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
+
+                    import re
+                    # Path to the file
+                    file_path = "lib/bmc_ssh_utility.py"
+                    
+                    # Old and new prompt values
+                    old_prompt = "# "
+                    new_prompt = "r12spd:~$"
+                    
+                    def update_prompt(file_path, old_prompt, new_prompt):
+                        try:
+                            with open(file_path, 'r') as file:
+                                content = file.read()
+                    
+                            # Regular expression to find the prompt definition
+                            pattern = r'"prompt":\s*["\']{}["\']'.format(re.escape(old_prompt))
+                            replacement = f'"prompt": "{new_prompt}"'
+                    
+                            # Replace the old prompt with the new one
+                            updated_content = re.sub(pattern, replacement, content)
+                    
+                            with open(file_path, 'w') as file:
+                                file.write(updated_content)
+                    
+                            print(f"Successfully updated prompt in {file_path}.")
+                        except FileNotFoundError:
+                            print(f"Error: File not found - {file_path}")
+                        except Exception as e:
+                            print(f"An error occurred: {e}")
+                    
+                    # Update the prompt in the file
+                    update_prompt(file_path, old_prompt, new_prompt)
                     
                     # mkdir -p robot_tests/results
                 '''
