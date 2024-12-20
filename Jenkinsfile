@@ -24,8 +24,6 @@ pipeline {
                     pip install --upgrade pip
                     pip install -r requirements.txt
 
-                    #!/usr/bin/env python3
-                    import re
                     # Path to the file
                     file_path = "lib/bmc_ssh_utility.py"
                     
