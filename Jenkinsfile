@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    // environment {
-    //     RP_ENDPOINT = "http://localhost:8080"                                                                // Replace with your ReportPortal URL
-    //     RP_API_KEY = "Report-Portal_wPToRq9CQ0aQly950BPg2ENMbYM20DVgtyfVUjx502lpjxyyg3B9WuFY80D8vpiN"        // Replace with your ReportPortal API key
-    //     RP_PROJECT = "superadmin_personal"                                                                   // Replace with your project name
-    //     RP_LAUNCH = "Robot Framework Launch"                                                                 // Specify a name for your launch
-    // }
+    environment {
+        RP_ENDPOINT = "http://localhost:8080"                                                                // Replace with your ReportPortal URL
+        RP_API_KEY = "Report-Portal_wPToRq9CQ0aQly950BPg2ENMbYM20DVgtyfVUjx502lpjxyyg3B9WuFY80D8vpiN"        // Replace with your ReportPortal API key
+        RP_PROJECT = "superadmin_personal"                                                                   // Replace with your project name
+        RP_LAUNCH = "Robot Framework Launch"                                                                 // Specify a name for your launch
+    }
 
     stages {
         stage('Clone Repository') {
