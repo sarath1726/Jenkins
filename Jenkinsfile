@@ -40,24 +40,31 @@ pipeline {
                     python update_bmc_ssh_utils.py
                     
                     # Run Robot Framework tests with ReportPortal listener
-                    #robot --listener robotframework_reportportal.listener \
-                    #       --variable RP_ENDPOINT:"http://traefik:8080" \
-                    #       --variable RP_API_KEY:"ReportPortal-Token_0ZYhiSVKR16XA75kbiZBypisG0Kx3q4w3nVd6ZtxmQ-XDVeByOfMF1WwX1Ox3NQr" \
-                    #       --variable RP_PROJECT:"superadmin_personal" \
-                    #       --variable RP_LAUNCH:"Robot Framework Launch" \
-                    #       --outputdir templates/test_openbmc_setup.robot .
-
+                    robot --listener robotframework_reportportal.listener \
+                           --variable RP_ENDPOINT:"http://localhost:8080" \
+                           --variable RP_API_KEY:"Report-Portal_wPToRq9CQ0aQly950BPg2ENMbYM20DVgtyfVUjx502lpjxyyg3B9WuFY80D8vpiN" \
+                           --variable RP_PROJECT:"superadmin_personal" \
+                           --variable RP_LAUNCH:"Robot Framework Launch" \
+                           -v OPENBMC_HOST:172.20.194.31 \
+                           -v OPENBMC_USERNAME:chetan.gubbi \
+                           -v OPENBMC_PASSWORD:Krutrim@234 \
+                           -v MANAGER_ID:1 \
+                           -v CHASSIS_ID:1 \
+                           -v SYSTEM_ID:s \
+                           -v IPMI_USERNAME:chetan.gubbi \
+                           templates/test_openbmc_setup.robot
+                            
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
                     #robot -v 172.20.194.31 templates/test_openbmc_setup.robot
-                    robot -v OPENBMC_HOST:172.20.194.31 \
-                          -v OPENBMC_USERNAME:chetan.gubbi \
-                          -v OPENBMC_PASSWORD:Krutrim@234 \
-                          -v MANAGER_ID:1 \
-                          -v CHASSIS_ID:1 \
-                          -v SYSTEM_ID:s \
-                          -v IPMI_USERNAME:chetan.gubbi \
-                          templates/test_openbmc_setup.robot
+                    #robot -v OPENBMC_HOST:172.20.194.31 \
+                    #      -v OPENBMC_USERNAME:chetan.gubbi \
+                    #      -v OPENBMC_PASSWORD:Krutrim@234 \
+                    #      -v MANAGER_ID:1 \
+                    #      -v CHASSIS_ID:1 \
+                    #      -v SYSTEM_ID:s \
+                    #      -v IPMI_USERNAME:chetan.gubbi \
+                    #      templates/test_openbmc_setup.robot
                           
                 '''
             }
