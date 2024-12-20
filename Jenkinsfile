@@ -23,13 +23,6 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
-
-                    # Path to the file
-                    file_path = "lib/bmc_ssh_utility.py"
-                    
-                    # Old and new prompt values
-                    old_prompt = "# "
-                    new_prompt = "r12spd:~$"
                     
                     def update_prompt(file_path, old_prompt, new_prompt):
                         try:
@@ -51,7 +44,12 @@ pipeline {
                             print(f"Error: File not found - {file_path}")
                         except Exception as e:
                             print(f"An error occurred: {e}")
+                    # Path to the file
+                    file_path = "lib/bmc_ssh_utility.py"
                     
+                    # Old and new prompt values
+                    old_prompt = "# "
+                    new_prompt = "r12spd:~$"
                     # Update the prompt in the file
                     update_prompt(file_path, old_prompt, new_prompt)
                     
