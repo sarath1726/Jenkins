@@ -23,6 +23,7 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
+                    python  update_bmc_ssh_utils.py
                      
                     # mkdir -p robot_tests/results
                 '''
