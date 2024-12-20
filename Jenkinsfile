@@ -38,7 +38,7 @@ pipeline {
                                 content = file.read()
                     
                             # Regular expression to find the prompt definition
-                            pattern = r'"prompt":\s*["\']{}["\']'.format(re.escape(old_prompt))
+                            pattern = '"prompt":\\s*["\']' + old_prompt.replaceAll("(['\"\\\\])", "\\\\$1") + '"'
                             replacement = f'"prompt": "{new_prompt}"'
                     
                             # Replace the old prompt with the new one
