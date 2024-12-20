@@ -23,8 +23,7 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                    
-                    
+                     
                     # mkdir -p robot_tests/results
                 '''
             }
