@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        RP_ENDPOINT = "http://localhost:8080"                                                                // Replace with your ReportPortal URL
-        RP_API_KEY = "Report-Portal_wPToRq9CQ0aQly950BPg2ENMbYM20DVgtyfVUjx502lpjxyyg3B9WuFY80D8vpiN"        // Replace with your ReportPortal API key
-        RP_PROJECT = "superadmin_personal"                                                                   // Replace with your project name
-        RP_LAUNCH = "Robot Framework Launch"                                                                 // Specify a name for your launch
+        RP_ENDPOINT = "http://localhost:8080"                                                             // Replace with your ReportPortal URL
+        RP_API_KEY = "RP-NEW-KEY_PJ-7KNN4QY6ABa-YOBTWPwYscxh99jI3rVeduprrPV_3pTdDcmAVKWysDlPci_hU"        // Replace with your ReportPortal API key
+        RP_PROJECT = "superadmin_personal"                                                                // Replace with your project name
+        RP_LAUNCH = "OpenBMC Launch"                                                              // Specify a name for your launch
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
                     python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                    pip install robotframework-reportportal
+                    pip install robotframework robotframework-reportportal
                     python  update_bmc_ssh_utils.py
                      
                     # mkdir -p robot_tests/results
@@ -43,10 +43,10 @@ pipeline {
                     
                     # Run Robot Framework tests with ReportPortal listener
                     robot --listener robotframework_reportportal.listener \
-                          --variable RP_ENDPOINT:"http://localhost:8080" \
-                          --variable RP_API_KEY:"Report-Portal_wPToRq9CQ0aQly950BPg2ENMbYM20DVgtyfVUjx502lpjxyyg3B9WuFY80D8vpiN" \
-                          --variable RP_PROJECT:"superadmin_personal" \
-                          --variable RP_LAUNCH:"Robot Framework Launch" \
+                          --variable RP_ENDPOINT:${RP_ENDPOINT} \
+                          --variable RP_API_KEY:${RP_API_KEY} \
+                          --variable RP_PROJECT:${RP_PROJECT} \
+                          --variable RP_LAUNCH:"${RP_LAUNCH}" \
                           -v OPENBMC_HOST:172.20.194.31 \
                           -v OPENBMC_USERNAME:chetan.gubbi \
                           -v OPENBMC_PASSWORD:Krutrim@234 \
@@ -71,14 +71,6 @@ pipeline {
                 '''
             }
         }
-                           
-        // stage('Publish Robot Framework Results') {
-        //     steps {
-        //         // Publish the results from the results subdirectory
-        //         robot outputPath: '/results'
-        //     }
-        // }
-
     }
         
     post {
