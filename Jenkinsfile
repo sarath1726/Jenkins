@@ -4,7 +4,7 @@ pipeline {
         RP_ENDPOINT = "http://localhost:8080"                                                             // Replace with your ReportPortal URL
         RP_API_KEY = "new_cJJoY2SeT-G0xisUrarxZ_8OJOub_LretZj0xcMK7iTf1sVk7O2yoPFE0oEWqh5r"        // Replace with your ReportPortal API key
         RP_PROJECT = "superadmin_personal"                                                                // Replace with your project name
-        RP_LAUNCH = "Robot Framework Launc"                                                              // Specify a name for your launch
+        RP_LAUNCH = "Robot Framework Launch"                                                              // Specify a name for your launch
     }
 
     stages {
@@ -20,12 +20,10 @@ pipeline {
                 sh '''
                     python3 -m venv myenv        
                     . myenv/bin/activate
-                    python --version
                     pip install --upgrade pip
                     pip install -r requirements.txt
                     pip install robotframework robotframework-reportportal
-                    python  update_bmc_ssh_utils.py
-                     
+                    
                     # mkdir -p robot_tests/results
                 '''
             }
