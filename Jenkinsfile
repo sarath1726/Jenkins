@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         RP_ENDPOINT = "http://localhost:8080"                                                             // Replace with your ReportPortal URL
-        RP_API_KEY = "RP-NEW-KEY_PJ-7KNN4QY6ABa-YOBTWPwYscxh99jI3rVeduprrPV_3pTdDcmAVKWysDlPci_hU"        // Replace with your ReportPortal API key
+        RP_API_KEY = "new_cJJoY2SeT-G0xisUrarxZ_8OJOub_LretZj0xcMK7iTf1sVk7O2yoPFE0oEWqh5r"        // Replace with your ReportPortal API key
         RP_PROJECT = "superadmin_personal"                                                                // Replace with your project name
         RP_LAUNCH = "OpenBMC Launch"                                                              // Specify a name for your launch
     }
