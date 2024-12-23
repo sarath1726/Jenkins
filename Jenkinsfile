@@ -4,7 +4,7 @@ pipeline {
         RP_ENDPOINT = "http://localhost:8080"                                                             // Replace with your ReportPortal URL
         RP_API_KEY = "new_cJJoY2SeT-G0xisUrarxZ_8OJOub_LretZj0xcMK7iTf1sVk7O2yoPFE0oEWqh5r"        // Replace with your ReportPortal API key
         RP_PROJECT = "superadmin_personal"                                                                // Replace with your project name
-        RP_LAUNCH = "OpenBMC Launch"                                                              // Specify a name for your launch
+        RP_LAUNCH = "Robot Framework Launc"                                                              // Specify a name for your launch
     }
 
     stages {
@@ -47,6 +47,7 @@ pipeline {
                           --variable RP_API_KEY:${RP_API_KEY} \
                           --variable RP_PROJECT:${RP_PROJECT} \
                           --variable RP_LAUNCH:"${RP_LAUNCH}" \
+                          templates/test_openbmc_setup.robot
                           #-v OPENBMC_HOST:172.20.194.31 \
                           #-v OPENBMC_USERNAME:chetan.gubbi \
                           #-v OPENBMC_PASSWORD:Krutrim@234 \
@@ -54,7 +55,7 @@ pipeline {
                           #-v CHASSIS_ID:1 \
                           #-v SYSTEM_ID:s \
                           #-v IPMI_USERNAME:chetan.gubbi \
-                          templates/test_openbmc_setup.robot
+                          #templates/test_openbmc_setup.robot
                             
                     # Run Robot Framework tests without ReportPortal
                     #robot --outputdir results robot_tests
