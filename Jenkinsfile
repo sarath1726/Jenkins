@@ -47,13 +47,13 @@ pipeline {
                           --variable RP_API_KEY:${RP_API_KEY} \
                           --variable RP_PROJECT:${RP_PROJECT} \
                           --variable RP_LAUNCH:"${RP_LAUNCH}" \
-                          -v OPENBMC_HOST:172.20.194.31 \
-                          -v OPENBMC_USERNAME:chetan.gubbi \
-                          -v OPENBMC_PASSWORD:Krutrim@234 \
-                          -v MANAGER_ID:1 \
-                          -v CHASSIS_ID:1 \
-                          -v SYSTEM_ID:s \
-                          -v IPMI_USERNAME:chetan.gubbi \
+                          #-v OPENBMC_HOST:172.20.194.31 \
+                          #-v OPENBMC_USERNAME:chetan.gubbi \
+                          #-v OPENBMC_PASSWORD:Krutrim@234 \
+                          #-v MANAGER_ID:1 \
+                          #-v CHASSIS_ID:1 \
+                          #-v SYSTEM_ID:s \
+                          #-v IPMI_USERNAME:chetan.gubbi \
                           templates/test_openbmc_setup.robot
                             
                     # Run Robot Framework tests without ReportPortal
