@@ -27,10 +27,16 @@ pipeline {
         }
         stage('Activate the Virtual Environment and Execute the Test') {
             steps {
-                // Exectute the robot tests
                 sh '''
                     . myenv/bin/activate
                     echo "Current Directory $(pwd)"
+                    
+                    # Verify Robot Framework is installed
+                    python -m pip list | grep robotframework
+                    
+                    # Debug paths
+                    echo "Listing templates directory:"
+                    ls templates
                     python update_bmc_ssh_utils.py
                     
                     # Run Robot Framework tests with ReportPortal listener
@@ -48,7 +54,7 @@ pipeline {
                     #    -v IPMI_USERNAME:chetan.gubbi \
                     #    templates/test_openbmc_setup.robot
        
-                    # Run Robot Framework tests without ReportPortal
+                    # Run Robot Framework tests
                     robot -v OPENBMC_HOST:172.20.194.31 \
                           -v OPENBMC_USERNAME:chetan.gubbi \
                           -v OPENBMC_PASSWORD:Krutrim@234 \
