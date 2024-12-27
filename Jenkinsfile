@@ -29,14 +29,11 @@ pipeline {
             steps {
                 sh '''
                     . myenv/bin/activate
-                    echo "Current Directory $(pwd)"
-                    
-                    # Verify Robot Framework is installed
-                    python -m pip list | grep robotframework
                     
                     # Debug paths
-                    echo "Listing templates directory:"
-                    ls templates
+                    echo "Listing OpenBMC Test Automation directory:"
+                    ls
+                    echo "Current Directory $(pwd)"
                     python update_bmc_ssh_utils.py
                     
                     # Run Robot Framework tests with ReportPortal listener
