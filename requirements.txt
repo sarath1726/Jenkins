@@ -5,7 +5,6 @@ robotframework # Replace with the latest version as needed
 robotframework-seleniumlibrary==6.0.0  # For web testing with Selenium
 robotframework-requests==0.9.3           # For API testing
 robotframework-databaselibrary==1.0.0    # For database testing
-robotframework-xml==1.0.0                 # For XML handling
 
 # Python dependencies (if needed)
 pytest==7.3.1                              # Replace with the latest version as needed
