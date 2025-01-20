@@ -51,14 +51,14 @@ pipeline {
                     #    templates/test_openbmc_setup.robot
        
                     # Run Robot Framework tests
-                    robot -v OPENBMC_HOST:172.20.194.31 \
-                          -v OPENBMC_USERNAME:chetan.gubbi \
-                          -v OPENBMC_PASSWORD:Krutrim@234 \
-                          -v MANAGER_ID:1 \
-                          -v CHASSIS_ID:1 \
-                          -v SYSTEM_ID:s \
-                          -v IPMI_USERNAME:chetan.gubbi \
-                          templates/test_openbmc_setup.robot     
+                    robot --listener robotframework_reportportal.listener \
+                        --variable RP_ENDPOINT:"http://localhost:8080" \
+                        --variable RP_API_KEY:"RP-API-key_gPAnpyjORxytDIs0LAkLhtGDRX2JOUp9KAPzCo7wFx1No2CJEGRSIZH5vdOaaEcy" \
+                        --variable RP_PROJECT:"superadmin_personal" \
+                        --variable RP_LAUNCH:"Robot Framework Launch" \
+                        templates/test_openbmc_setup.robot --reportportal
+
+   
                 '''
             }
         }
