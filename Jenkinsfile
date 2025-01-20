@@ -1,17 +1,17 @@
 pipeline {
     agent any
-    // environment {
-    //     RP_ENDPOINT = "http://localhost:8080"                                                             // Replace with your ReportPortal URL
-    //     RP_API_KEY = "new_cJJoY2SeT-G0xisUrarxZ_8OJOub_LretZj0xcMK7iTf1sVk7O2yoPFE0oEWqh5r"               // Replace with your ReportPortal API key
-    //     RP_PROJECT = "superadmin_personal"                                                                // Replace with your project name
-    //     RP_LAUNCH = "Robot Framework Launch"                                                              // Specify a name for your launch
-    // }
-
+    environment {
+         RP_ENDPOINT = "http://localhost:8080"                                                             // Replace with your ReportPortal URL
+         RP_API_KEY = "new_cJJoY2SeT-G0xisUrarxZ_8OJOub_LretZj0xcMK7iTf1sVk7O2yoPFE0oEWqh5r"               // Replace with your ReportPortal API key
+         RP_PROJECT = "superadmin_personal"                                                                // Replace with your project name
+         RP_LAUNCH = "Robot Framework Launch"                                                              // Specify a name for your launch
+    }
+    
     stages {
         stage('Clone Repository') {
             steps {
                 // Replace the following URL with the URL of your public Git repository
-                git url: 'https://github.com/openbmc/openbmc-test-automation.git', branch: 'master'
+                git url: 'https://github.com/openbmc/openbmc-test-automation.git', branch: 'main'
             }
         }
         stage('Create a Python Virtual Environment') {
@@ -34,7 +34,6 @@ pipeline {
                     echo "Listing OpenBMC Test Automation directory:"
                     ls
                     echo "Current Directory $(pwd)"
-                    python update_bmc_ssh_utils.py
                     
                     # Run Robot Framework tests with ReportPortal listener
                     #robot --listener robotframework_reportportal.listener \
