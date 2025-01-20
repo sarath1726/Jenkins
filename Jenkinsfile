@@ -29,6 +29,9 @@ pipeline {
             steps {
                 sh '''
                     . myenv/bin/activate
+                    pip install robotframework-reportportal
+                    pip install robotframework-xml
+
                     
                     # Debug paths
                     echo "Listing OpenBMC Test Automation directory:"
